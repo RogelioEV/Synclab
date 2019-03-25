@@ -1,0 +1,68 @@
+body{
+  background-color: #DADADA;
+}
+.header .logo{
+  width: 100px;
+  height: 50px;
+  background-color: #999999;
+}
+.container .video {
+  height: 14em;
+  margin-top: 2em;
+  margin-bottom: 6em;
+  background-color: #AAAAAA;
+}
+.container .row .codeForm{
+  margin-top: 6em;
+}
+.lightbox{
+  z-index: 4;
+  max-width: none;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #666;
+  display: none;
+  opacity: .85;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.box {
+  max-width: none;
+  width: 80%;
+  z-index: 5;
+  background-color: #DDD;
+  height: 40vh;
+  margin: 30vh 10%;
+  opacity: 1;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5%;
+}
+.box button{
+  margin-top: 3em;
+}
+.box p{
+  margin-top: 10vh;
+}
+.container .row .code{
+  font-size: 6em;
+}
+.text-center{
+  text-align: center;
+}
+.float-right{
+  float: right;
+}
+
+@media (min-width: 550px) {
+  .container .video{
+    height: 30em;
+    margin-bottom: 2em;
+    margin-top: 0;
+  }
+}

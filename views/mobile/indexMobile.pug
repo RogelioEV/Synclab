@@ -1,0 +1,18 @@
+extends ../template.pug
+block content
+  .container
+    .row
+      .video.columns Aqui va el video
+    .row Visita SyncLab.com desde tu computadora y comienza a jugar!
+    .row
+      .codeForm  
+        |
+        form
+          .row.column.text-center Escribe tu código aquí:
+          
+          .row: input(type='text', name='code' class = 'columns')
+          .row: input(type='submit', name='submit', value ='Conectar' class = 'float-right')
+  .container.lightbox
+  |
+  .container.box.text-center: p(id = 'msg') 
+    .row: .float-right: button(id = 'startApp') Continuar
