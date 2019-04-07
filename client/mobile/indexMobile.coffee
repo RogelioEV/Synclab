@@ -1,6 +1,7 @@
 $ = require 'jquery'
 io = require 'socket.io-client'
 App = require './appMobile'
+Bg = require '../assets/mobile-index-bg.png'
 class Mobile
   socket: null
 
@@ -15,7 +16,7 @@ class Mobile
         @app = new App {
           width: window.innerWidth
           height: window.innerHeight
-          backgroundColor: '0xCCCCCC'
+          transparent: true
         }, @socket
         $('body').css('margin', '0')
       else $('.box').css('display', 'none')

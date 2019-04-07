@@ -1,13 +1,22 @@
 body{
   background-color: #DADADA;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-image: url('scripts/89edb1d76017fdb8b462f44aa002bf70.png');
+  overflow: hidden;
 }
 .header .logo{
-  width: 100px;
-  height: 50px;
-  background-color: #999999;
+  margin: 1em 0;
+  height: 4.5em;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('scripts/12827e5b4d08ac8c4d6835e2872ad906.png');
 }
 .container .video {
-  height: 14em;
+  height: 10em;
   margin-top: 2em;
   margin-bottom: 6em;
   background-color: #AAAAAA;
@@ -58,11 +67,16 @@ body{
 .float-right{
   float: right;
 }
-
 @media (min-width: 550px) {
+  body{
+    background-image: url('scripts/ce1a2666166e71871fb60576eb9338a2.png');
+  }
   .container .video{
     height: 30em;
     margin-bottom: 2em;
     margin-top: 0;
+  }
+  .header .logo{
+    height: 4.5em;
   }
 }

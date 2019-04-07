@@ -1,6 +1,8 @@
 $ = require 'jquery'
 io = require 'socket.io-client'
 App = require './appDesktop'
+bg = require '../assets/desktopBg.png'
+syncLogo = require '../assets/SYNCLAB.png'
 class Desktop
   socket: null
 
@@ -26,7 +28,7 @@ class Desktop
     @app = new App({
       width: window.innerWidth
       height: window.innerHeight
-      backgroundColor: '0xCCCCCC'
+      transparent: true
     }, @socket)
     $('body').css('margin', '0')
     $('.box').css('display', 'none')

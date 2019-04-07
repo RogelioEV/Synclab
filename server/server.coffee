@@ -29,17 +29,18 @@ app.get '/',  (req, res) ->
 app.get '/mobile', (req, res) =>
   browser = req.device.type
   if browser != 'desktop'
+    # res.send req.query.code
     res.render './mobile/indexMobile'
   else res.redirect '/'
-app.get '/get', (req, res) =>
-  res.render './mobile/indexMobile'
+
 app.get '/desktop', (req, res) =>
   browser = req.device.type
   ip = req.connection.remoteAddress
   if browser == 'desktop'
     res.render './desktop/index', {
       browser,
-      code: sha1(ip).substring(0, 4)
+      code: sha1(ip).substring(0, 4),
+      code2: req.query.code
     }
   else res.redirect '/'
 
