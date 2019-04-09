@@ -1,22 +1,28 @@
 $ = require 'jquery'
 PIXI = require 'pixi.js'
 Matraz = require './elements/Matraz.coffee'
-MatrazImg = require '../assets/MATRAZ.png'
-LiquidImg = require '../assets/AZUL.png'
-Bg = require '../assets/desktoop-app-bg.png'
+MatrazJson = require '../assets/mtzjson.json'
+MatrazImg = require '../assets/mtz.png'
+Bg = require '../assets/desktop-app-bg.png'
+MatrazLiquid = require '../assets/mtzliquid.png'
 class DesktopApp extends PIXI.Application
   animation:true
   animationNodes:[]
 
   constructor: (config, socket) ->
     super(config)
-    $('body').css('background-image', "url(#{Bg})")
+    @animate()
     @socket = socket
-    PIXI.loader.add(MatrazImg).add(LiquidImg).load(@buildApp)
-    console.log MatrazImg
+    PIXI.loader
+      .add(Bg)
+      .add(MatrazImg)
+      .add(MatrazLiquid)
+      .load(@buildApp)
   buildApp:=>
+    $('body').css('background-image', "url(#{Bg})")
+    $('body').css('overflow', 'hidden')
     $('body').html @view
-    @matraz = new Matraz([MatrazImg, LiquidImg], @)
+    @matraz = new Matraz(@, MatrazImg, MatrazLiquid)
   addAnimationNodes:(child)=>
     @animationNodes.push child
     null

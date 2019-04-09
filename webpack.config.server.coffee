@@ -18,7 +18,7 @@ module.exports = {
   output:
     path: '/'
     filename: 'bundle.js'
-    publicPath: 'http://localhost:3000/scripts/'
+    publicPath: '/'
   target: 'web',
   module: {
     rules: [
@@ -27,17 +27,17 @@ module.exports = {
         loader: "coffee-loader"
       }
       {
-        test: /\.json$/,
-        loader: 'json'
+        test: [/\.vert$/, /\.frag$/]
+        use: 'raw-loader' 
       }
       {
-        test: [/\.vert$/, /\.frag$/]
-        use: 'raw-loader' }
-      {
         test: /\.(png|svg|jpg|gif|mp3)$/
-        use: [
-          'file-loader'
-          ]
+        use: {
+          loader: 'file-loader'
+          options: {
+            name:'assets/[name].[ext]'
+          }
+        }
       }
     ]
   },

@@ -1,28 +1,21 @@
 $ = require 'jquery'
 io = require 'socket.io-client'
 App = require './appDesktop'
-bg = require '../assets/desktopBg.png'
-syncLogo = require '../assets/SYNCLAB.png'
+bg = require '../assets/desktop-index-bg.png'
+syncLogo = require '../assets/synclab.png'
 class Desktop
   socket: null
 
   constructor: () ->
     console.log 'new desktop client'
     @socket = io('/desktop')
-    # @startApp()
+    @startApp()
     @socket.on 'start:app', @startApp
     @socket.on 'device:paired', (code)=>
       console.log "Conected with mobile, code: #{code}"
       $('#msg').html('Los dispositivos se han conectado satisfactoriamente.')
       $('.box').css('display', 'block')
       $('.lightbox').css('display', 'block')
-    $('#getRequest').click (evt)=>
-      evt.preventDefault()
-      console.log 'click'
-      $.get('/get', (data)=>
-        $('body').html(data)
-        window.history.pushState("object or string", "GET PAGE", "/get")
-      )
   startApp:=>
     console.log 'Pixi Launch'
     @app = new App({

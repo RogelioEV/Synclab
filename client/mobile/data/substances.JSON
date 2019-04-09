@@ -1,0 +1,14 @@
+{
+  "venom":{
+    "color": "0xcc00FF"
+  },
+  "soap":{
+    "color": "0x11FF33"
+  },
+  "alkaseltzer":{
+    "color": "0xFFFFFF"
+  },
+  "fuel":{
+    "color": "0xCC0033"
+  }
+}

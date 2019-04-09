@@ -4,8 +4,8 @@ body{
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  background-image: url('scripts/89edb1d76017fdb8b462f44aa002bf70.png');
-  overflow: hidden;
+  background-image: url('assets/mobile-index-bg.png');
+  color: white; 
 }
 .header .logo{
   margin: 1em 0;
@@ -13,7 +13,7 @@ body{
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('scripts/12827e5b4d08ac8c4d6835e2872ad906.png');
+  background-image: url('assets/synclab.png');
 }
 .container .video {
   height: 10em;
@@ -67,10 +67,20 @@ body{
 .float-right{
   float: right;
 }
-@media (min-width: 550px) {
+@media (min-width:550px){
   body{
-    background-image: url('scripts/ce1a2666166e71871fb60576eb9338a2.png');
+    background-image: url('assets/desktop-index-bg.png');
   }
+  .container .video{
+    height: 25em;
+    margin-bottom: 2em;
+    margin-top: 0;
+  }
+  .header .logo{
+    height: 3em;
+  }
+}
+@media (min-width: 1400px) {
   .container .video{
     height: 30em;
     margin-bottom: 2em;
