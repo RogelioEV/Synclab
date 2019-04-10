@@ -3,12 +3,24 @@ io = require 'socket.io-client'
 App = require './appDesktop'
 bg = require '../assets/desktop-index-bg.png'
 syncLogo = require '../assets/synclab.png'
+qrcode = require 'qrcode-generator'
+textBox = require '../assets/textBox.png'
 class Desktop
   socket: null
 
   constructor: () ->
     console.log 'new desktop client'
+    code = $('#code').attr('code')
     @socket = io('/desktop')
+    qr = qrcode(0, 'L')
+    qr.addData ("192.168.1.89:3000/mobile?code=#{code}")
+    qr.make()
+    tag = qr.createSvgTag()
+    console.log tag.indexOf('74px')
+    tag = tag.replace('74px', '150px')
+    tag = tag.replace('74px', '150px')
+    console.log tag
+    $('.qr').html(tag)
     @startApp()
     @socket.on 'start:app', @startApp
     @socket.on 'device:paired', (code)=>

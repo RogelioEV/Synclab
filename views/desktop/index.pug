@@ -1,13 +1,21 @@
 extends ../template.pug
 block content
   .container
-    .row
-      .video video
-    .row.text-center ¡Visita SyncLab.com desde tu celular y comienza a jugar!
-    br 
-    |El código de sincronización es:
-    .row
-      .code.text-center #{code}
+    .video
+      .row.code
+        .offset-by-one.three.columns.text-center.code
+          |Tu código es:  
+          br
+          h3(id = 'code' code = code) #{code}
+        .offset-by-five.three.columns
+          .qr
+    .row.text-center: h2 ¡Bienvenido a Synclab! 
+    br
+    .row.text-center 
+      |Un juego revolucionario donde usarás tu computadora y celular 
+      br
+      |Entra a Synclab.com en tu celular y escribe tu código.
+    
   .container.lightbox
   |
   .container.box.text-center: p Los dispositivos se han conectado satisfactoriamente, comienza el juego desde tu celular.

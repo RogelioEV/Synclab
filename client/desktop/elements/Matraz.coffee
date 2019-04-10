@@ -71,9 +71,6 @@ class Matraz
     @newColor = random.hexToRgb @newColor
     for i in [0..2] by 1
       @delta[i] = (@newColor[i] - @oldColor[i])/60
-    # console.log @newColor, @oldColor, @delta
-    # console.log random.rgbToHex @oldColor
-    # console.log random.rgbToHex @newColor
   animate:=>
     if @newColor
       for i in [0..2] by 1

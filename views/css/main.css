@@ -8,7 +8,7 @@ body{
   color: white; 
 }
 .header .logo{
-  margin: 1em 0;
+  margin: 1em 0 0 0;
   height: 4.5em;
   background-size: contain;
   background-position: center;
@@ -18,8 +18,10 @@ body{
 .container .video {
   height: 10em;
   margin-top: 2em;
-  margin-bottom: 6em;
-  background-color: #AAAAAA;
+  background-image: url('assets/textBox.png');
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .container .row .codeForm{
   margin-top: 6em;
@@ -58,9 +60,6 @@ body{
 .box p{
   margin-top: 10vh;
 }
-.container .row .code{
-  font-size: 6em;
-}
 .text-center{
   text-align: center;
 }
@@ -70,9 +69,10 @@ body{
 @media (min-width:550px){
   body{
     background-image: url('assets/desktop-index-bg.png');
+    overflow: hidden;
   }
   .container .video{
-    height: 25em;
+    height: 20em;
     margin-bottom: 2em;
     margin-top: 0;
   }
@@ -82,11 +82,15 @@ body{
 }
 @media (min-width: 1400px) {
   .container .video{
-    height: 30em;
-    margin-bottom: 2em;
+    height: 25em;
     margin-top: 0;
+    padding: 5em 3em 0 3em;
+    color: black;
+  }
+  .code{
+    margin-top: 4em;
   }
   .header .logo{
-    height: 4.5em;
+    height: 4em;
   }
 }

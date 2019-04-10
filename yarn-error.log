@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js publish
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add qrencode
 
 PATH: 
   C:\Program Files (x86)\Python37-32\Scripts\;C:\Program Files (x86)\Python37-32\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Users\Rogelio\AppData\Local\Microsoft\WindowsApps;C:\Users\Rogelio\AppData\Roaming\npm;C:\Users\Rogelio\AppData\Local\atom\bin;C:\Users\Rogelio\AppData\Local\Yarn\bin;C:\Program Files\heroku\bin;C:\Users\Rogelio\AppData\Roaming\Composer\vendor\bin;C:\Users\Rogelio\AppData\Local\Programs\Microsoft VS Code\bin
@@ -14,17 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: canceled
-      at Interface.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:116426:13)
-      at emitNone (events.js:106:13)
-      at Interface.emit (events.js:208:7)
-      at Interface._ttyWrite (readline.js:774:16)
-      at ReadStream.onkeypress (readline.js:158:10)
+  Error: https://registry.yarnpkg.com/qrencode: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:60182:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:120166:22)
       at emitTwo (events.js:126:13)
-      at ReadStream.emit (events.js:214:7)
-      at emitKeys (internal/readline.js:420:14)
-      at emitKeys.next (<anonymous>)
-      at ReadStream.onData (readline.js:1010:36)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:121138:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:121060:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
 
 npm manifest: 
   {
@@ -34,7 +34,8 @@ npm manifest:
     "author": "Homero Sousa",
     "license": "MIT",
     "scripts": {
-      "start:dev": "nodemon server/index.coffee"
+      "start:dev": "nodemon server/index.coffee",
+      "build": "webpack --config webpack.prod.config.coffee"
     },
     "dependencies": {
       "backbone": "^1.3.3",
