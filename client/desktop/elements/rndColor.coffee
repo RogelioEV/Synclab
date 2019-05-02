@@ -27,7 +27,6 @@ decToHex=(num)=>
     num = (num - mod)/16
     arr.push checkDigit mod
   arr.push checkDigit num
-  console.log arr
   str = '0x'
   for i in [1..arr.length] by 1
     str += arr[arr.length - i]
@@ -43,10 +42,10 @@ hexToRgb = (color)=>
   ]
   return arr
 rgbToHex = (color)=>
-  str = '0x' 
+  str = '0x'
   r = '' + checkDigit(Math.floor((color[0] - color[0]%16)/16)) + checkDigit(Math.floor(color[0]%16))
-  g = '' + checkDigit(Math.floor((color[1] - color[0]%16)/16)) + checkDigit(Math.floor(color[1]%16))
-  b = '' + checkDigit(Math.floor((color[2] - color[0]%16)/16)) + checkDigit(Math.floor(color[2]%16))
+  g = '' + checkDigit(Math.floor((color[1] - color[1]%16)/16)) + checkDigit(Math.floor(color[1]%16))
+  b = '' + checkDigit(Math.floor((color[2] - color[2]%16)/16)) + checkDigit(Math.floor(color[2]%16))
   str += r + g + b
 checkDigit = (digit) =>
   switch digit
@@ -84,6 +83,24 @@ checkDigit = (digit) =>
       digit = 14
       break
     when 'f'
+      digit = 15
+      break
+    when 'A'
+      digit = 10
+      break
+    when 'B'
+      digit = 11
+      break
+    when 'C'
+      digit = 12
+      break
+    when 'D'
+      digit = 13
+      break
+    when 'E'
+      digit = 14
+      break
+    when 'F'
       digit = 15
       break
   digit

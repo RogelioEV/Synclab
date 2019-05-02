@@ -1,0 +1,30 @@
+{
+  "perfume":{
+    "ingredientes": [
+      {"Vainilla": false}, 
+      {"Alcanfor": false}, 
+      {"Etanol": false}
+    ]
+  },
+  "alkaseltzer":{
+    "ingredientes":[
+      {"Aspartamo": false},
+      {"Acesulfamo Potásico": false},
+      {"Docuosato Sódico": false}
+    ]
+  },
+  "jabon":{
+    "ingredientes":[
+      {"Hidróxido de Sodio": false},
+      {"Hidróxido de Potasio": false},
+      {"Glicerina": false}
+    ]
+  },
+  "insecticida":{
+    "ingredientes": [
+      {"Queroseno": false},
+      {"Propano": false},
+      {"Cloruro de Sodio": false}
+    ]
+  }
+}

@@ -30,7 +30,7 @@ app.get '/mobile', (req, res) =>
   browser = req.device.type
   if browser != 'desktop'
     # res.send req.query.code
-    res.render './mobile/indexMobile'
+    res.render './mobile/indexMobile', {code: req.query.code}
   else res.redirect '/'
 
 app.get '/desktop', (req, res) =>

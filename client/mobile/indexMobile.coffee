@@ -6,7 +6,6 @@ class Mobile
   socket: null
 
   constructor: () ->
-    console.log 'new mobile client'
     @socket = io.connect('/mobile')
     @socket.on 'device:paired', @alertConnection
     $('#startApp').click (evt)=>
@@ -22,21 +21,22 @@ class Mobile
       else $('.box').css('display', 'none')
       $('body').css('overflow', 'scroll')
       $('.lightbox').css('display', 'none')
+    if $('input[name=code]').val() != ''
+      @tryConn()
     $('form').submit (evt)=>
       evt.preventDefault()
-      code = $('input[name=code]').val()
-      @socket.emit 'try:connection', code
-      console.log 'trying to connetct with code', code
-
+      @tryConn()
+  tryConn:()=>
+    code = $('input[name=code]').val()
+    @socket.emit 'try:connection', code
+    
   alertConnection:(success)=>
     if success
-      console.log 'The device has connected succesfully'
-      $('#msg').html('Los dispositivos se han conectado satisfactoriamente.')
+      $('#msg').html('¡Te has conectado con éxito!')
       $('#startApp').html('Comenzar').attr('success', 'true')
     else
       $('#msg').html('No se ha encontrado el codigo.')
       $('#startApp').html('Regresar').attr('success', 'false')
-      console.log 'Unable to find code'
     $('.box').css('display', 'block')
     $('.lightbox').css('display', 'block')
     document.body.scrollTop = 0

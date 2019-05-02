@@ -6,7 +6,7 @@ class Matraz
   x: 0 
   y: 0
   sprite: []
-  animationSpeed: 0.5
+  animationSpeed: 0.3
   delta:[]
   constructor: (app, img, liquidImg) ->
     @app = app
@@ -22,7 +22,7 @@ class Matraz
     @liquidSprite.x += @x + 5 * @scale
     @liquidSprite.y += @y + 5 * @scale
 
-    @liquidSprite.tint = random.rndClr()
+    @liquidSprite.tint = '0xFFFFFF'
     @app.stage.addChild @liquidSprite
     for name, frame of MatrazData.frames
       data = frame.frame
@@ -46,42 +46,55 @@ class Matraz
       @sprite[i].loop = false
       @sprite[i].active = false
       @sprite[i].pos = i
-      @sprite[i].on 'click', @changeState
+      @sprite[i].onComplete = @liquidoCompleto
       @app.stage.addChild @sprite[i]
-
     @sprite[0].alpha = 1
-    @sprite[0].active = true
-    @sprite[0].interactive = true
-    @sprite[0].play()
+    
+    @sprite[2].onComplete = @checkRecipie
     @app.addAnimationNodes @
-  changeState:(evt)=>
-    target = evt.target.pos
-    if target < 2
-      newTarget = target + 1
-    else
-      newTarget = 0
-    @sprite[target].gotoAndStop(0)
-    @sprite[target].alpha = 0
-    @sprite[target].interactive = false
-    @sprite[newTarget].interactive = true
-    @sprite[newTarget].alpha = 1
-    @sprite[newTarget].gotoAndPlay(0)
-    @newColor = random.rndClr()
+  changeState:(sustancia)=>
+    for sprite in @sprite
+      if sprite.active
+        target = sprite.pos
+    @newColor = sustancia.color
     @oldColor = random.hexToRgb @liquidSprite.tint
     @newColor = random.hexToRgb @newColor
     for i in [0..2] by 1
-      @delta[i] = (@newColor[i] - @oldColor[i])/60
+      @delta[i] = (@newColor[i] - @oldColor[i])/100
+    if target < 2
+      newTarget = target + 1
+      @sprite[target].gotoAndStop(0)
+      @sprite[target].alpha = 0
+      @sprite[target].active = false
+      @sprite[newTarget].active = true
+      @sprite[newTarget].alpha = 1
+      @sprite[newTarget].gotoAndPlay(0)
+    if !target
+      @sprite[0].play()
+      @sprite[0].active = true
+  restart:=>
+    for sprite in @sprite
+      sprite.active = false
+      sprite.alpha = 0
+      sprite.gotoAndStop(0)
+    @sprite[0].alpha = 1
+    @liquidSprite.tint = '0xFFFFFF'
+    @app.completarPedido()
+  liquidoCompleto:=>
+    @app.socket.emit('liquido:completo')
+  checkRecipie:=>
+    @restart()
+    @app.barra.restart()
+    @liquidoCompleto()
   animate:=>
     if @newColor
       for i in [0..2] by 1
-        @oldColor[i] += @delta[i]
-        @liquidSprite.tint = random.rgbToHex @oldColor
-        if Math.abs(@newColor[i] - @oldColor[i]) < Math.abs(@delta[i]) * 10
-          # console.log 'equal', i
+        if Math.abs(@newColor[i] - @oldColor[i]) < Math.abs(@delta[i]) || @oldColor[i] < 0
           @oldColor[i] = @newColor[i]
-      # console.log @newColor[0], @oldColor[0], @newColor[2], @oldColor[2], @newColor[1], @oldColor[1]  
+        else 
+          @oldColor[i] = Math.round(@oldColor[i] + @delta[i])
+      @liquidSprite.tint = random.rgbToHex @oldColor
       if @newColor[0] == @oldColor[0] && @newColor[2] == @oldColor[2] && @newColor[1] == @oldColor[1]  
         @newColor = false 
-        console.log 'all equal'
 
 module.exports = Matraz

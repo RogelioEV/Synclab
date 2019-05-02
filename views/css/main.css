@@ -6,6 +6,7 @@ body{
   background-repeat: no-repeat;
   background-image: url('assets/mobile-index-bg.png');
   color: white; 
+  font-family: 'Gotham Rounded'
 }
 .header .logo{
   margin: 1em 0 0 0;
@@ -26,6 +27,9 @@ body{
 .container .row .codeForm{
   margin-top: 6em;
 }
+#msg{
+  margin: 40vh 0 0;
+}
 .lightbox{
   z-index: 4;
   max-width: none;
@@ -33,29 +37,46 @@ body{
   height: 100vh;
   padding: 0;
   margin: 0;
-  background-color: #666;
+  background-color: #000;
   display: none;
-  opacity: .85;
+  opacity: .60;
   position: absolute;
   top: 0;
   left: 0;
 }
 .box {
   max-width: none;
-  width: 80%;
   z-index: 5;
-  background-color: #DDD;
-  height: 40vh;
-  margin: 30vh 10%;
-  opacity: 1;
+  color: #86AA4A;
   display: none;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 5%;
+  font-size: 1.5em;
+  width: 90vw;
+  height: 90vh;
+  margin: 3vh 5vw;
+  background-image: url('assets/textBox.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.box h1{
+  font-size: 3em;
+  margin: 25vh 5vw 15vh;
+}
+button, input[type=submit] {
+  background-image: url('assets/StartButton.png');
+  border: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #D5D5CE;
 }
 .box button{
-  margin-top: 3em;
+  margin-top: 30vh;
+  width: 60vw;
+  height: 10vh;
+  font-size: 1em;
 }
 .box p{
   margin-top: 10vh;
@@ -65,6 +86,83 @@ body{
 }
 .float-right{
   float: right;
+}
+.desktop-game-title{
+  background-image: url('assets/Title.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  width: 34.5rem;
+  height: 8rem;
+}
+.desktop-game-title h3{
+  margin-top: 2.3rem;
+}
+.receta{
+  background-image: url('assets/Recipie.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3em 4em;
+  min-width: 18vw;
+  position: absolute;
+  top: 20vh;
+  left: 70vw;
+  /* display: none; */
+  opacity: 0;
+}
+.receta ul, li{
+  margin-bottom: 0;
+}
+.tutoContainer{
+  background-image: url('assets/textBox.png');
+  width: 40vw;
+  height: 20vh;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  color: #2573B6;
+  left: 0;
+  z-index: 3;
+  margin: 30vh 24vw;
+  padding: 10vh 6vw;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.startBtn{
+  background-image: url('assets/Btn1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: 100% 100%;
+  padding: 3vh 5vw;
+  top: 25vh;
+  width: 70vw;
+  height: 14vh;
+  left: 10vw;
+  font-size: 4em;
+  z-index: 5;
+}
+.tutorialBtn{
+  background-image: url('assets/Btn2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 73vw;
+  position: absolute;
+  background-size: 100% 100%;
+  padding: 3vh 3.5vw;
+  left: 10vw;
+  top: 55vh;
+  height: 14vh;
+  font-size: 4em;
+}
+.formula{
+  position: absolute;
+  font-size: 3em;
 }
 @media (min-width:550px){
   body{
@@ -78,6 +176,9 @@ body{
   }
   .header .logo{
     height: 3em;
+  }
+  .box{
+    font-size: 2em;
   }
 }
 @media (min-width: 1400px) {

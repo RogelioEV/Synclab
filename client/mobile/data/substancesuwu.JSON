@@ -1,63 +1,63 @@
 {
   "aspartamo":{
-    "color": "0xcc00FF",
+    "color": "0x008000",
     "nombre": "Aspartamo",
     "formula": "C14H18N2O5"
   },
   "acesulfamo-potasico":{
-    "color": "0x004589",
+    "color": "0xffff00",
     "nombre": "Acesulfamo Potásico",
     "formula": "C4H4KNO4S"
   },
   "docuosato-sodico":{
-    "color": "0xccffff",
+    "color": "0xaf30ff",
     "nombre": "Docuosato Sódico",
     "formula": "C20H37NaO7S"
   },
   "queroseno":{
-    "color": "0xccaabb",
+    "color": "0xff3d2d",
     "nombre": "Queroseno",
     "formula": "C10H22"
   },
   "propano":{
-    "color":"0x004589",
+    "color":"0x4054ff",
     "nombre": "Propano",
     "formula": "C3H8"
   },
   "Cloruro-de-sodio":{
-    "color": "0x004589",
+    "color": "0xff00a8",
     "nombre": "Cloruro de Sodio",
     "formula": "NaCl"
   },
   "hidroxido-de-sodio":{
-    "color": "0x004589",
+    "color": "0x6dffc7",
     "nombre": "Hidróxido de Sodio",
     "formula": "NaOH"
   },
   "hidroxido-de-potasio":{
-    "color": "0x004589",
+    "color": "0xff5ffc",
     "nombre": "Hidróxido de Potasio",
     "formula": "KOH"
   },
   "glicerina":{
-    "color": "0x004589",
+    "color": "0xd3ff57",
     "nombre": "Glicerina",
     "formula": "C3H8O3"
   },
   "etanol":{
-    "color": "0x004589",
+    "color": "0xff84b0",
     "nombre": "Etanol",
     "formula": "C2H5OH"
   },
   "alcanfor":{
-    "color": "0x004589",
+    "color": "0xcdffcf",
     "nombre": "Alcanfor",
     "formula": "C10H16O"
   },
   "vainilla":{
-    "color":"0xc1a66a",
+    "color":"0xff9419",
     "nombre":"Vainilla",
-    "formula": "C8H803"
+    "formula": "C8H8O3"
   }
   
 }
